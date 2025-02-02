@@ -47,7 +47,7 @@ public class ActionScript
         //Safety check, to make sure they have a RB
         if (Who.RB == null) return;
         //A character's movement is their desired direction * their speed * the action's speed. Knockback goes on top
-        Who.RB.velocity = (MoveMult * Who.Speed * Who.DesiredMove.normalized) + Who.Knockback;
+        Who.RB.linearVelocity = (MoveMult * Who.Speed * Who.DesiredMove.normalized) + Who.Knockback;
     }
 
     //Runs when the action starts, equivalent to Start
@@ -56,7 +56,7 @@ public class ActionScript
         //First we reset the action to make sure it's configured right
         Reset();
         //If HaltMomentum is true, then halt the character's movement
-        if(HaltMomentum && Who.RB != null) Who.RB.velocity = Vector2.zero;
+        if(HaltMomentum && Who.RB != null) Who.RB.linearVelocity = Vector2.zero;
         //Start the action's coroutine and record it in a variable so we can end it early if needed
         Coro = Who.StartCoroutine(Script());
         //If Anim is set. . .

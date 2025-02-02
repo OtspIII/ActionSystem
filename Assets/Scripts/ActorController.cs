@@ -76,7 +76,7 @@ public class ActorController : MonoBehaviour
         else
         {
             //But if you aren't doing an action right now, you just suffer knockback and can't walk
-            RB.velocity = Knockback;
+            RB.linearVelocity = Knockback;
         }
     }
 
